@@ -43,6 +43,12 @@ CORS_ALLOW_CREDENTIALS = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 16,
+    'DATETIME_FORMAT': "%a, %d %b %Y %H:%M",
+}
+
 # Application definition
 
 INSTALLED_APPS = [
