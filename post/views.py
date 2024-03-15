@@ -12,14 +12,14 @@ import logging
 logger = logging.getLogger(__name__)
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by('-date')
     serializer_class = PostSerializer
     
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
     def get_queryset(self):
-        queryset = Post.objects.all()
+        queryset = Post.objects.all().order_by('-date')
         tags = self.request.GET.getlist('tags')
         if tags is not None:
             queryset = queryset.filter(tags__contains=tags)
