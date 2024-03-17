@@ -1,4 +1,4 @@
-# Gallery
+# Gallery 백엔드
 ## 설명
 사진 공유 사이트
 
